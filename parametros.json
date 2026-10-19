@@ -1,0 +1,131 @@
+{
+  "descripcion": "Coeficientes y tablas auxiliares usados en el cálculo. Todos los valores pueden modificarse aquí sin tocar el código.",
+
+  "g": 9.81,
+
+  "fluidez": {
+    "fuente": "Apuntes de la asignatura (Cintas transportadoras, tema 3): relación fluidez - ángulo de reposo α - ángulo de sobrecarga β",
+    "clases": [
+      { "nombre": "Muy buena", "alfaMax": 20, "betaRecomendado": 5,  "betaTexto": "5°",      "descripcion": "Forma uniforme y redondeada, tamaños muy pequeños (arena silícea, cemento)" },
+      { "nombre": "Buena",     "alfaMax": 30, "betaRecomendado": 10, "betaTexto": "10°",     "descripcion": "Forma uniforme y redondeada, tamaño pequeño (cereales, leguminosas)" },
+      { "nombre": "Normal",    "alfaMax": 40, "betaRecomendado": 20, "betaTexto": "20°-25°", "descripcion": "Formas irregulares, granulares, pesos medios (carbones, caliza, arcilla, minerales)" },
+      { "nombre": "Mala",      "alfaMax": 90, "betaRecomendado": 30, "betaTexto": "30°",     "descripcion": "Formas irregulares, fibrosas, que se entretejen (virutas, bagazo)" }
+    ],
+    "nota": "Para la clase Normal (β = 20°-25°) se toma por defecto β = 20°, el valor que da menor capacidad (lado de la seguridad)."
+  },
+
+  "factorInclinacionK": {
+    "fuente": "Rulmeca, Tab. 6 - Factor de reducción K por inclinación de la cinta",
+    "delta": [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
+    "K":     [1.00, 1.00, 0.99, 0.98, 0.97, 0.95, 0.93, 0.91, 0.89, 0.85, 0.81],
+    "nota": "Entre valores tabulados se interpola linealmente. Fuera de 0°-20° no hay datos."
+  },
+
+  "factorAlimentacionK1": {
+    "fuente": "Rulmeca, factor de corrección por irregularidad de la alimentación",
+    "opciones": [
+      { "nombre": "Alimentación regular",      "K1": 1.00 },
+      { "nombre": "Alimentación poco regular", "K1": 0.95 },
+      { "nombre": "Alimentación irregular",    "K1": 0.90 },
+      { "nombre": "Alimentación muy irregular","K1": 0.80 }
+    ]
+  },
+
+  "coeficienteC": {
+    "fuente": "DIN 22101 - Coeficiente C de resistencias secundarias en función de la longitud L",
+    "L": [3, 4, 5, 6, 8, 10, 13, 16, 20, 25, 32, 40, 50, 63, 80, 90, 100, 120, 140, 160, 180, 200, 250, 300, 350, 400, 450, 500, 550, 600, 700, 800, 900, 1000, 1500, 2000],
+    "C": [9.0, 7.6, 6.6, 5.9, 5.1, 4.5, 4.0, 3.6, 3.2, 2.9, 2.6, 2.4, 2.2, 2.0, 1.92, 1.86, 1.78, 1.70, 1.63, 1.56, 1.50, 1.45, 1.38, 1.31, 1.27, 1.25, 1.20, 1.20, 1.18, 1.17, 1.14, 1.12, 1.10, 1.09, 1.06, 1.05],
+    "nota": "Interpolación lineal entre valores. Para L < 3 m se toma C = 9,0 y para L > 2000 m, C = 1,05."
+  },
+
+  "coeficienteRozamientoF": {
+    "fuente": "DIN 22101 / Rulmeca - coeficiente ficticio de rozamiento de las partes giratorias",
+    "opciones": [
+      { "nombre": "Cinta bien alineada, rodillos de calidad, buen mantenimiento", "f": 0.017 },
+      { "nombre": "Condiciones normales de servicio",                            "f": 0.020 },
+      { "nombre": "Ambiente polvoriento o mantenimiento deficiente",             "f": 0.025 },
+      { "nombre": "Condiciones muy desfavorables (sobrecargas, baja temperatura)","f": 0.030 }
+    ]
+  },
+
+  "rozamientoTambor": {
+    "fuente": "Valores habituales (CEMA / DIN 22101) del coeficiente de rozamiento banda-tambor μ",
+    "opciones": [
+      { "nombre": "Tambor de acero desnudo, seco",        "mu": 0.25 },
+      { "nombre": "Tambor de acero desnudo, húmedo",      "mu": 0.20 },
+      { "nombre": "Tambor revestido de goma, seco",       "mu": 0.35 },
+      { "nombre": "Tambor revestido de goma, húmedo",     "mu": 0.30 },
+      { "nombre": "Tambor con revestimiento cerámico",    "mu": 0.40 }
+    ]
+  },
+
+  "angulosAbrazamiento": {
+    "nota": "Ángulo θ que abraza la banda sobre el tambor motriz",
+    "opciones": [
+      { "nombre": "180° - tambor motriz simple", "grados": 180 },
+      { "nombre": "200° - con tambor de desvío", "grados": 200 },
+      { "nombre": "210° - con tambor de desvío", "grados": 210 },
+      { "nombre": "220° - con tambor de desvío", "grados": 220 },
+      { "nombre": "240° - con tambor de desvío", "grados": 240 },
+      { "nombre": "360° - dos tambores en tándem", "grados": 360 },
+      { "nombre": "420° - dos tambores en tándem", "grados": 420 }
+    ]
+  },
+
+  "flechaAdmisible": {
+    "nota": "Flecha máxima admisible entre rodillos (h/a). Con 2 % se obtiene T0 = 6,25 · q · g · a",
+    "valor": 0.02
+  },
+
+  "calidadTejido": {
+    "fuente": "UNE 18025 - Calidad del tejido (urdimbre): resistencia a tracción mínima por tela",
+    "opciones": [
+      { "codigo": "L",  "nombre": "L - tela ligera", "resistenciaKgfCm": 60, "masaTelaKgM2": 1.0 },
+      { "codigo": "LS", "nombre": "LS - tela semipesada", "resistenciaKgfCm": 70, "masaTelaKgM2": 1.1 },
+      { "codigo": "P",  "nombre": "P - tela pesada", "resistenciaKgfCm": 75, "masaTelaKgM2": 1.2 }
+    ],
+    "nota": "La masa por tela (kg/m2) es un valor orientativo para estimar el peso propio de la banda."
+  },
+
+  "calidadRecubrimiento": {
+    "fuente": "UNE 18025 - Calidad de los recubrimientos",
+    "opciones": [
+      { "codigo": "A", "nombre": "A - altamente resistente a la abrasión", "resistenciaGmm2": 2500, "alargamiento": 550 },
+      { "codigo": "B", "nombre": "B - resistencia media a la abrasión",    "resistenciaGmm2": 2000, "alargamiento": 500 },
+      { "codigo": "C", "nombre": "C - resistencia normal",                  "resistenciaGmm2": 1050, "alargamiento": 350 }
+    ],
+    "densidadGomaKgM2mm": 1.15,
+    "recomendacionPorAbrasividad": {
+      "A": { "calidad": "C", "superiorMm": 3.0, "inferiorMm": 1.5 },
+      "B": { "calidad": "B", "superiorMm": 4.0, "inferiorMm": 2.0 },
+      "C": { "calidad": "A", "superiorMm": 6.0, "inferiorMm": 2.0 }
+    },
+    "nota": "Espesores orientativos según la abrasividad del material; el usuario puede modificarlos."
+  },
+
+  "banda": {
+    "coeficienteSeguridad": 10,
+    "telasMin": 2,
+    "telasMax": 6,
+    "nota": "Coeficiente de seguridad habitual para bandas textiles con empalme vulcanizado: 8-10. Si se necesitan más telas que telasMax, se recomienda banda de cables de acero (St)."
+  },
+
+  "rodillos": {
+    "fuente": "Apuntes: diámetro de rodillos portantes 90-200 mm (aconsejable 100-150 mm); paso en carga 1-1,5 m; retorno doble o triple.",
+    "diametros": [89, 108, 133, 159, 194],
+    "masaGiratoriaKgPorMetro": { "89": 8.5, "108": 11.5, "133": 16.0, "159": 22.0, "194": 30.0 },
+    "factorLongitudRodillos": 1.15,
+    "nota": "Masa de las partes giratorias por metro de longitud de rodillo (orientativa). La longitud total de rodillos de una estación se estima como 1,15 · B. Se puede introducir la masa real del catálogo."
+  },
+
+  "velocidadesNormalizadas": [0.42, 0.52, 0.66, 0.84, 1.05, 1.31, 1.68, 2.09, 2.62, 3.35, 4.19, 5.24],
+
+  "velocidadMaxOrientativa": {
+    "nota": "Velocidad máxima orientativa según abrasividad del material (criterio práctico: a mayor abrasividad, menor velocidad para limitar el desgaste).",
+    "A": 4.2, "B": 3.35, "C": 2.62
+  },
+
+  "motoresNormalizadosKW": [0.37, 0.55, 0.75, 1.1, 1.5, 2.2, 3, 4, 5.5, 7.5, 11, 15, 18.5, 22, 30, 37, 45, 55, 75, 90, 110, 132, 160, 200, 250, 315, 355, 400, 450, 500, 560, 630, 710, 800, 900, 1000],
+
+  "diametrosTambor": [250, 315, 400, 500, 630, 800, 1000, 1250, 1400, 1600]
+}
