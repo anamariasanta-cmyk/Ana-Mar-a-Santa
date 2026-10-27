@@ -1,7 +1,13 @@
 =====================================================================
   DIMENSIONADO DE CINTAS TRANSPORTADORAS - APLICACIÓN WEB
   Transporte y Manutención Industrial · Máster en Ingeniería Industrial
-  Universidad de Salamanca
+  Universidad de Salamanca · Curso 2026/27 · Tarea 1
+
+  Autores: Jesús Martín Criado
+           Ana María Santa
+
+  Repositorio GitHub: https://github.com/anamariasanta-cmyk/Ana-Mar-a-Santa
+  Aplicación en línea (GitHub Pages): https://anamariasanta-cmyk.github.io/Ana-Mar-a-Santa/
 =====================================================================
 
 1. OBJETIVO
@@ -75,6 +81,9 @@ Opción A - En local (requiere Python instalado):
   5. Para detener el servidor: Ctrl+C en la consola.
 
 Opción B - En GitHub Pages (sin instalar nada):
+  La aplicación ya está publicada en:
+        https://anamariasanta-cmyk.github.io/Ana-Mar-a-Santa/
+  Para publicar una copia propia:
   1. Sube todos los archivos a la raíz de un repositorio público de GitHub.
   2. En el repositorio: Settings > Pages > Source: "Deploy from a branch",
      rama "main", carpeta "/ (root)" > Save.

@@ -33,6 +33,7 @@ body { margin: 0; line-height: 1.45; }
 .etiqueta { font-size: 12px; font-weight: 700; letter-spacing: 1px; opacity: .85; margin: 0; }
 h1 { font-size: 34px; margin: 6px 0 8px; }
 .subtitulo { max-width: 860px; margin: 0; opacity: .92; }
+.autores { margin: 0 0 8px; font-weight: 600; opacity: .95; }
 .acciones { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
 .boton {
   font: inherit; font-weight: 600; font-size: 14px;
